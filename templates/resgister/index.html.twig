@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<form  method="POST">
+<div class="container mt-5">
+
+<div class="input-group mb-3">
+  <input type="text" name="email" class="form-control" placeholder="Email" aria-label="Recipient's email" aria-describedby="basic-addon2">
+  <span class="input-group-text" id="basic-addon2">@example.com</span>
+</div>
+<div class="input-group mb-3">
+  <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Recipient's Password" aria-describedby="basic-addon2">
+</div>
+<div class="input-group mb-3">
+  <input type="text" name="nom" class="form-control" placeholder="Nom" aria-label="Recipient's first name" aria-describedby="basic-addon2">
+</div>
+<div class="input-group mb-3">
+  <input type="text" name="prenom" class="form-control" placeholder="Familly name" aria-label="Recipient's familly name" aria-describedby="basic-addon2">
+</div>
+<div class="input-group mb-3">
+  <input type="text" name="adresse" class="form-control" placeholder="Adresse" aria-label="Adresse">
+</div>
+
+<button type="submit" class="btn btn-outline-danger">Valider</button>
+</div>
+</form>
+{% endblock %}
