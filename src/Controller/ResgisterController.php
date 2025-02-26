@@ -21,7 +21,7 @@ final class ResgisterController extends AbstractController
     #[Route('/resgister', name: 'app_resgister')]
     public function Register(Request $request, EntityManagerInterface $entityManagerInterface,UserPasswordHasherInterface $userPasswordHasher): Response
     {
-
+        echo("in the register controller");
         if($request->isMethod("POST")){
             $email=$request->get("email");
             $nom=$request->get("nom");  
@@ -29,18 +29,18 @@ final class ResgisterController extends AbstractController
             $password=$request->get("password");
             $adresse=$request->get("adresse");
             $prenom=$request->get("prenom");
-        
             $user =new User();
             $user->setEmail($email);
             $user->setPassword($password);
             $user->setName($nom);
-            $user->setAdresse($adresse);    
+            $user->setAdresse($adresse); 
+            echo($adresse);
             $user->setPrenom($prenom);
             $user->setRoles(["ROLE_USER"]);
             $hashedPassword=$userPasswordHasher->hashPassword($user,$password);
             $user->setPassword($hashedPassword);
-            var_dump($user);
-            
+           
+             
             $entityManagerInterface->persist($user);
             $entityManagerInterface->flush();
             return $this->redirectToRoute("app_login");
